@@ -68,6 +68,47 @@ fun MyNews(
             .statusBarsPadding()
             .padding(horizontal = 20.dp)
     ) {
+        // TABS
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(
+                50.dp,
+                Alignment.CenterHorizontally
+            )
+        ) {
+
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+
+                Text(
+                    text = "Noticias",
+                    fontWeight = FontWeight.Bold
+                )
+
+                Box(
+                    modifier = Modifier
+                        .width(40.dp)
+                        .height(3.dp)
+                        .background(Color(0xFF6C5CE7))
+                )
+            }
+
+            Text(
+                text = "Eventos",
+                color = Color.Gray,
+                fontWeight = FontWeight.Bold
+            )
+
+            Text(
+                text = "Clima",
+                color = Color.Gray,
+                fontWeight = FontWeight.Bold
+            )
+        }
+
+
     }
 }
 

@@ -106,6 +106,12 @@ fun MyNews(
                 color = Color.Gray,
                 fontWeight = FontWeight.Bold
             )
+            Text(
+                text = "Ultimas noticias",
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp,
+                modifier = Modifier.padding(top = 20.dp)
+            )
         }
 
 

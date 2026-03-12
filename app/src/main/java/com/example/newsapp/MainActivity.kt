@@ -24,6 +24,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AddHome
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -40,6 +41,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsapp.ui.theme.NewsAppTheme
+
 
 
 class MainActivity : ComponentActivity() {
@@ -68,6 +70,7 @@ fun MyNews(
             .statusBarsPadding()
             .padding(horizontal = 20.dp)
     ) {
+        TopBar()
         // TABS
         Row(
             modifier = Modifier
@@ -120,7 +123,7 @@ fun MyNews(
                     .height(180.dp)
                     .padding(top = 10.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
-            ){
+            ) {
                 //Noticias
                 item {
                     Box(
@@ -191,7 +194,7 @@ fun MyNews(
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(top = 20.dp)
             )
-             // Grid de las noticias
+            // Grid de las noticias
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -201,26 +204,55 @@ fun MyNews(
                     .height(400.dp)
                     .padding(top = 15.dp)
             ) {
-
+                items(newsList) { news ->
+                    NewsCard(news)
+                }
             }
         }
     }
 
+    @Composable
+    fun TopBar() {
+        TODO("Not yet implemented")
+    }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+                .padding(bottom = 20.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
 
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp),
+                shape = RoundedCornerShape(30.dp),
+                placeholder = {
+                    Text("Buscar")
+                },
+                leadingIcon = {
 
-}
-
+                    Icon(
+                        imageVector = Icons.Default.AddHome,
+                        contentDescription = "Inicio",
+                        tint = Color.Black,
+                        modifier = Modifier.size(28.dp)
+                    )
+                }
+            )
         }
-
-
     }
 
-
-@Composable
-fun GreetingPreview() {
-    NewsAppTheme {
-        MyNews(
-            innerPadding = PaddingValues(0.dp)
-        )
+    @Composable
+    fun GreetingPreview() {
+        NewsAppTheme {
+            MyNews(
+                innerPadding = PaddingValues(0.dp)
+            )
+        }
     }
 }
+

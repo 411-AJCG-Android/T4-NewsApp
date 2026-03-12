@@ -191,15 +191,30 @@ fun MyNews(
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(top = 20.dp)
             )
+             // Grid de las noticias
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(400.dp)
+                    .padding(top = 15.dp)
+            ) {
 
-
+            }
         }
+    }
+
+
+
+}
 
         }
 
 
     }
-}
+
 
 @Composable
 fun GreetingPreview() {

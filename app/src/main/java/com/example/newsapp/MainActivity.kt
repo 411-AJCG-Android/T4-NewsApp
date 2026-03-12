@@ -112,6 +112,18 @@ fun MyNews(
                 fontSize = 20.sp,
                 modifier = Modifier.padding(top = 20.dp)
             )
+
+            //Carrusel
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(180.dp)
+                    .padding(top = 10.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ){
+
+            }
+
         }
 
 

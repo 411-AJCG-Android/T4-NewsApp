@@ -121,8 +121,79 @@ fun MyNews(
                     .padding(top = 10.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ){
+                //Noticias
+                item {
+                    Box(
+                        modifier = Modifier
+                            .width(230.dp)
+                            .height(160.dp)
+                            .clip(RoundedCornerShape(20.dp))
+                            .background(Color(0xFF6C5CE7)),
+                        contentAlignment = Alignment.BottomCenter
+                    ) {
 
+                        Column(
+                            modifier = Modifier.padding(16.dp)
+                        ) {
+
+                            Text(
+                                text = "El presidente de EE.UU. no muestra signos de arrepentimiento...",
+                                fontSize = 18.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White
+                            )
+
+                            Text(
+                                text = "febrero 08 - 2024",
+                                color = Color.White,
+                                fontSize = 12.sp,
+                                modifier = Modifier.padding(top = 8.dp)
+                            )
+                        }
+                    }
+                }
+
+                item {
+
+                    Box(
+                        modifier = Modifier
+                            .width(230.dp)
+                            .height(160.dp)
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(Color(0xFF6C5CE7)),
+                        contentAlignment = Alignment.BottomCenter
+                    ) {
+
+                        Column(
+                            modifier = Modifier.padding(16.dp)
+                        ) {
+
+                            Text(
+                                text = "Bañarse en la piscina del desierto de Cleopatra",
+                                fontSize = 18.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White
+                            )
+
+                            Text(
+                                text = "febrero 08 - 2024",
+                                color = Color.White,
+                                fontSize = 12.sp,
+                                modifier = Modifier.padding(top = 8.dp)
+                            )
+                        }
+                    }
+                }
             }
+
+            Text(
+                text = "Alrededor del mundo",
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(top = 20.dp)
+            )
+
+
+        }
 
         }
 

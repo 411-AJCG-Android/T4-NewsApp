@@ -29,7 +29,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,8 +42,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsapp.ui.theme.NewsAppTheme
 
-
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,9 +49,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             NewsAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MyNews(
-                        innerPadding
-                    )
+                    MyNews(innerPadding)
                 }
             }
         }
@@ -71,8 +66,9 @@ fun MyNews(
             .statusBarsPadding()
             .padding(horizontal = 20.dp)
     ) {
+
         TopBar()
-        // TABS
+
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
@@ -95,112 +91,104 @@ fun MyNews(
                         .background(Color(0xFF6C5CE7))
                 )
             }
-
             Text(
                 text = "Eventos",
                 color = Color.Gray,
                 fontWeight = FontWeight.Bold
             )
-
             Text(
                 text = "Clima",
                 color = Color.Gray,
                 fontWeight = FontWeight.Bold
             )
-            Text(
-                text = "Ultimas noticias",
-                fontWeight = FontWeight.Bold,
-                fontSize = 20.sp,
-                modifier = Modifier.padding(top = 20.dp)
-            )
+        }
 
-            //Carrusel
-            LazyRow(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(180.dp)
-                    .padding(top = 10.dp),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                //Noticias
-                item {
-                    Box(
-                        modifier = Modifier
-                            .width(230.dp)
-                            .height(160.dp)
-                            .clip(RoundedCornerShape(20.dp))
-                            .background(Color(0xFF6C5CE7)),
-                        contentAlignment = Alignment.BottomCenter
+        Text(
+            text = "Ultimas noticias",
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp,
+            modifier = Modifier.padding(top = 20.dp)
+        )
+        LazyRow(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(180.dp)
+                .padding(top = 10.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            item {
+                Box(
+                    modifier = Modifier
+                        .width(230.dp)
+                        .height(160.dp)
+                        .clip(RoundedCornerShape(20.dp))
+                        .background(Color(0xFF6C5CE7)),
+                    contentAlignment = Alignment.BottomCenter
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp)
                     ) {
-
-                        Column(
-                            modifier = Modifier.padding(16.dp)
-                        ) {
-
-                            Text(
-                                text = "El presidente de EE.UU. no muestra signos de arrepentimiento...",
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.White
-                            )
-
-                            Text(
-                                text = "febrero 08 - 2024",
-                                color = Color.White,
-                                fontSize = 12.sp,
-                                modifier = Modifier.padding(top = 8.dp)
-                            )
-                        }
-                    }
-                }
-
-                item {
-                    Box(
-                        modifier = Modifier
-                            .width(230.dp)
-                            .height(160.dp)
-                            .clip(RoundedCornerShape(16.dp))
-                            .background(Color(0xFF6C5CE7)),
-                        contentAlignment = Alignment.BottomCenter
-                    ) {
-                        Column(
-                            modifier = Modifier.padding(16.dp)
-                        ) {
-                            Text(
-                                text = "Bañarse en la piscina del desierto de Cleopatra",
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.White
-                            )
-                            Text(
-                                text = "febrero 08 - 2024",
-                                color = Color.White,
-                                fontSize = 12.sp,
-                                modifier = Modifier.padding(top = 8.dp)
-                            )
-                        }
+                        Text(
+                            text = "El presidente de EE.UU. no muestra signos de arrepentimiento...",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                        Text(
+                            text = "febrero 08 - 2024",
+                            color = Color.White,
+                            fontSize = 12.sp,
+                            modifier = Modifier.padding(top = 8.dp)
+                        )
                     }
                 }
             }
 
-            Text(
-                text = "Alrededor del mundo",
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = 20.dp)
-            )
-            // Grid de las noticias
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                verticalArrangement = Arrangement.spacedBy(12.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(400.dp)
-                    .padding(top = 15.dp)
-            ) {
-                items(newsList) { news ->
-                    NewsCard(news)
+            item {
+                Box(
+                    modifier = Modifier
+                        .width(230.dp)
+                        .height(160.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color(0xFF6C5CE7)),
+                    contentAlignment = Alignment.BottomCenter
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp)
+                    ) {
+                        Text(
+                            text = "Bañarse en la piscina del desierto de Cleopatra",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                        Text(
+                            text = "febrero 08 - 2024",
+                            color = Color.White,
+                            fontSize = 12.sp,
+                            modifier = Modifier.padding(top = 8.dp)
+                        )
+                    }
                 }
+            }
+        }
+        Text(
+            text = "Alrededor del mundo",
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(top = 20.dp)
+        )
+
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(400.dp)
+                .padding(top = 15.dp)
+        ) {
+            items(newsList) { news ->
+                NewsCard(news)
             }
         }
     }
@@ -208,6 +196,7 @@ fun MyNews(
 
 @Composable
 fun TopBar() {
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -224,7 +213,7 @@ fun TopBar() {
             shape = RoundedCornerShape(30.dp),
             placeholder = {
                 Text("Buscar")
-                          },
+            },
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Default.AddHome,
@@ -236,6 +225,7 @@ fun TopBar() {
         )
     }
 }
+
 @Composable
 fun NewsCard(news: News) {
     Box(

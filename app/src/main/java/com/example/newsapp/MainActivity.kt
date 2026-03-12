@@ -81,16 +81,13 @@ fun MyNews(
                 Alignment.CenterHorizontally
             )
         ) {
-
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-
                 Text(
                     text = "Noticias",
                     fontWeight = FontWeight.Bold
                 )
-
                 Box(
                     modifier = Modifier
                         .width(40.dp)
@@ -158,7 +155,6 @@ fun MyNews(
                 }
 
                 item {
-
                     Box(
                         modifier = Modifier
                             .width(230.dp)
@@ -167,18 +163,15 @@ fun MyNews(
                             .background(Color(0xFF6C5CE7)),
                         contentAlignment = Alignment.BottomCenter
                     ) {
-
                         Column(
                             modifier = Modifier.padding(16.dp)
                         ) {
-
                             Text(
                                 text = "Bañarse en la piscina del desierto de Cleopatra",
                                 fontSize = 18.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color.White
                             )
-
                             Text(
                                 text = "febrero 08 - 2024",
                                 color = Color.White,
@@ -213,55 +206,50 @@ fun MyNews(
     }
 }
 
-    @Composable
-    fun TopBar() {
-        Row(
+@Composable
+fun TopBar() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .padding(bottom = 20.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        OutlinedTextField(
+            value = "",
+            onValueChange = {},
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp)
-                .padding(bottom = 20.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-
-            OutlinedTextField(
-                value = "",
-                onValueChange = {},
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp),
-                shape = RoundedCornerShape(30.dp),
-                placeholder = {
-                    Text("Buscar")
-                },
-                leadingIcon = {
-
-                    Icon(
-                        imageVector = Icons.Default.AddHome,
-                        contentDescription = "Inicio",
-                        tint = Color.Black,
-                        modifier = Modifier.size(28.dp)
-                    )
-                }
-            )
-        }
+                .height(50.dp),
+            shape = RoundedCornerShape(30.dp),
+            placeholder = {
+                Text("Buscar")
+                          },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Default.AddHome,
+                    contentDescription = "Inicio",
+                    tint = Color.Black,
+                    modifier = Modifier.size(28.dp)
+                )
+            }
+        )
     }
+}
 @Composable
 fun NewsCard(news: News) {
-
     Box(
         modifier = Modifier
             .height(200.dp)
             .padding(4.dp)
             .clip(RoundedCornerShape(16.dp))
     ) {
-
         Image(
             painter = painterResource(news.image),
             contentDescription = news.title,
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize()
         )
-
         Text(
             text = news.title,
             color = Color.Black,
@@ -282,13 +270,13 @@ fun NewsCard(news: News) {
 )
 
 @Composable
-    fun GreetingPreview() {
-        NewsAppTheme {
-            MyNews(
-                innerPadding = PaddingValues(0.dp)
-            )
-        }
+fun GreetingPreview() {
+    NewsAppTheme {
+        MyNews(
+            innerPadding = PaddingValues(0.dp)
+        )
     }
+}
 
 
 

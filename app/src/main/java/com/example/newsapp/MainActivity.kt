@@ -276,6 +276,11 @@ fun NewsCard(news: News) {
     }
 }
 
+@Preview(
+    showBackground = true,
+    showSystemUi = true
+)
+
 @Composable
     fun GreetingPreview() {
         NewsAppTheme {

@@ -29,6 +29,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -210,11 +211,10 @@ fun MyNews(
             }
         }
     }
+}
 
     @Composable
     fun TopBar() {
-        TODO("Not yet implemented")
-    }
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -245,8 +245,38 @@ fun MyNews(
             )
         }
     }
+@Composable
+fun NewsCard(news: News) {
 
-    @Composable
+    Box(
+        modifier = Modifier
+            .height(200.dp)
+            .padding(4.dp)
+            .clip(RoundedCornerShape(16.dp))
+    ) {
+
+        Image(
+            painter = painterResource(news.image),
+            contentDescription = news.title,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize()
+        )
+
+        Text(
+            text = news.title,
+            color = Color.Black,
+            fontWeight = FontWeight.Bold,
+            fontSize = 14.sp,
+            modifier = Modifier
+                .align(Alignment.BottomStart)
+                .clip(RoundedCornerShape(16.dp))
+                .background(Color.LightGray)
+                .padding(8.dp)
+        )
+    }
+}
+
+@Composable
     fun GreetingPreview() {
         NewsAppTheme {
             MyNews(
@@ -254,5 +284,6 @@ fun MyNews(
             )
         }
     }
-}
+
+
 

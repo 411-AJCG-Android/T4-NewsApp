@@ -114,7 +114,7 @@ fun MyNews(
                 .fillMaxWidth()
                 .height(180.dp)
                 .padding(top = 10.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+            horizontalArrangement = Arrangement.spacedBy(15.dp)
         ) {
             item {
                 Box(
